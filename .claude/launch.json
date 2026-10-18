@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "vite",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "port": 1420
+    },
+    {
+      "name": "mock-5etools",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["scripts/mock-5etools.mjs", "5055"],
+      "port": 5055
+    }
+  ]
+}

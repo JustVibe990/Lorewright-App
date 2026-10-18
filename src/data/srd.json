@@ -1,0 +1,337 @@
+{
+  "_meta": {
+    "source": "SRD",
+    "title": "System Reference Document 5.1",
+    "license": "CC-BY-4.0",
+    "attribution": "This work includes material taken from the System Reference Document 5.1 (\"SRD 5.1\") by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode."
+  },
+  "spell": [
+    {
+      "name": "Fireball",
+      "source": "SRD",
+      "level": 3,
+      "school": "V",
+      "time": [{ "number": 1, "unit": "action" }],
+      "range": { "type": "point", "distance": { "type": "feet", "amount": 150 } },
+      "components": { "v": true, "s": true, "m": "a tiny ball of bat guano and sulfur" },
+      "duration": [{ "type": "instant" }],
+      "entries": [
+        "A bright streak flashes from your pointing finger to a point you choose within range and then blossoms with a low roar into an explosion of flame. Each creature in a 20-foot-radius sphere centered on that point must make a Dexterity saving throw. A target takes {@damage 8d6} fire damage on a failed save, or half as much damage on a successful one.",
+        "The fire spreads around corners. It ignites flammable objects in the area that aren't being worn or carried."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "At Higher Levels",
+          "entries": ["When you cast this spell using a spell slot of 4th level or higher, the damage increases by {@scaledamage 8d6|3-9|1d6} for each slot level above 3rd."]
+        }
+      ]
+    },
+    {
+      "name": "Hold Person",
+      "source": "SRD",
+      "level": 2,
+      "school": "E",
+      "time": [{ "number": 1, "unit": "action" }],
+      "range": { "type": "point", "distance": { "type": "feet", "amount": 60 } },
+      "components": { "v": true, "s": true, "m": "a small, straight piece of iron" },
+      "duration": [{ "type": "timed", "duration": { "type": "minute", "amount": 1 }, "concentration": true }],
+      "entries": [
+        "Choose a humanoid that you can see within range. The target must succeed on a Wisdom saving throw or be {@condition paralyzed|SRD} for the duration. At the end of each of its turns, the target can make another Wisdom saving throw. On a success, the spell ends on the target."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "At Higher Levels",
+          "entries": ["When you cast this spell using a spell slot of 3rd level or higher, you can target one additional humanoid for each slot level above 2nd. The humanoids must be within 30 feet of each other when you target them."]
+        }
+      ]
+    },
+    {
+      "name": "Shield",
+      "source": "SRD",
+      "level": 1,
+      "school": "A",
+      "time": [{ "number": 1, "unit": "reaction", "condition": "which you take when you are hit by an attack or targeted by the magic missile spell" }],
+      "range": { "type": "point", "distance": { "type": "self" } },
+      "components": { "v": true, "s": true },
+      "duration": [{ "type": "timed", "duration": { "type": "round", "amount": 1 } }],
+      "entries": [
+        "An invisible barrier of magical force appears and protects you. Until the start of your next turn, you have a +5 bonus to AC, including against the triggering attack, and you take no damage from {@spell magic missile|SRD}."
+      ]
+    },
+    {
+      "name": "Magic Missile",
+      "source": "SRD",
+      "level": 1,
+      "school": "V",
+      "time": [{ "number": 1, "unit": "action" }],
+      "range": { "type": "point", "distance": { "type": "feet", "amount": 120 } },
+      "components": { "v": true, "s": true },
+      "duration": [{ "type": "instant" }],
+      "entries": [
+        "You create three glowing darts of magical force. Each dart hits a creature of your choice that you can see within range. A dart deals {@damage 1d4 + 1} force damage to its target. The darts all strike simultaneously, and you can direct them to hit one creature or several."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "At Higher Levels",
+          "entries": ["When you cast this spell using a spell slot of 2nd level or higher, the spell creates one more dart for each slot level above 1st."]
+        }
+      ]
+    },
+    {
+      "name": "Cure Wounds",
+      "source": "SRD",
+      "level": 1,
+      "school": "V",
+      "time": [{ "number": 1, "unit": "action" }],
+      "range": { "type": "point", "distance": { "type": "touch" } },
+      "components": { "v": true, "s": true },
+      "duration": [{ "type": "instant" }],
+      "entries": [
+        "A creature you touch regains a number of hit points equal to {@dice 1d8} + your spellcasting ability modifier. This spell has no effect on undead or constructs."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "At Higher Levels",
+          "entries": ["When you cast this spell using a spell slot of 2nd level or higher, the healing increases by {@scaledice 1d8|1-9|1d8} for each slot level above 1st."]
+        }
+      ]
+    }
+  ],
+  "monster": [
+    {
+      "name": "Goblin",
+      "source": "SRD",
+      "size": ["S"],
+      "type": { "type": "humanoid", "tags": ["goblinoid"] },
+      "alignment": ["N", "E"],
+      "ac": [{ "ac": 15, "from": ["leather armor", "shield"] }],
+      "hp": { "average": 7, "formula": "2d6" },
+      "speed": { "walk": 30 },
+      "str": 8, "dex": 14, "con": 10, "int": 10, "wis": 8, "cha": 8,
+      "skill": { "stealth": "+6" },
+      "senses": ["darkvision 60 ft."],
+      "passive": 9,
+      "languages": ["Common", "Goblin"],
+      "cr": "1/4",
+      "trait": [
+        { "name": "Nimble Escape", "entries": ["The goblin can take the Disengage or Hide action as a bonus action on each of its turns."] }
+      ],
+      "action": [
+        { "name": "Scimitar", "entries": ["{@atk mw} {@hit 4} to hit, reach 5 ft., one target. {@h}5 ({@damage 1d6 + 2}) slashing damage."] },
+        { "name": "Shortbow", "entries": ["{@atk rw} {@hit 4} to hit, range 80/320 ft., one target. {@h}5 ({@damage 1d6 + 2}) piercing damage."] }
+      ]
+    },
+    {
+      "name": "Owlbear",
+      "source": "SRD",
+      "size": ["L"],
+      "type": "monstrosity",
+      "alignment": ["U"],
+      "ac": [{ "ac": 13, "from": ["natural armor"] }],
+      "hp": { "average": 59, "formula": "7d10 + 21" },
+      "speed": { "walk": 40 },
+      "str": 20, "dex": 12, "con": 17, "int": 3, "wis": 12, "cha": 7,
+      "skill": { "perception": "+3" },
+      "senses": ["darkvision 60 ft."],
+      "passive": 13,
+      "cr": "3",
+      "trait": [
+        { "name": "Keen Sight and Smell", "entries": ["The owlbear has advantage on Wisdom ({@skill Perception}) checks that rely on sight or smell."] }
+      ],
+      "action": [
+        { "name": "Multiattack", "entries": ["The owlbear makes two attacks: one with its beak and one with its claws."] },
+        { "name": "Beak", "entries": ["{@atk mw} {@hit 7} to hit, reach 5 ft., one creature. {@h}10 ({@damage 1d10 + 5}) piercing damage."] },
+        { "name": "Claws", "entries": ["{@atk mw} {@hit 7} to hit, reach 5 ft., one target. {@h}14 ({@damage 2d8 + 5}) slashing damage."] }
+      ]
+    }
+  ],
+  "item": [
+    {
+      "name": "Bag of Holding",
+      "source": "SRD",
+      "wondrous": true,
+      "rarity": "uncommon",
+      "weight": 15,
+      "entries": [
+        "This bag has an interior space considerably larger than its outside dimensions, roughly 2 feet in diameter at the mouth and 4 feet deep. The bag can hold up to 500 pounds, not exceeding a volume of 64 cubic feet. The bag weighs 15 pounds, regardless of its contents. Retrieving an item from the bag requires an action.",
+        "If the bag is overloaded, pierced, or torn, it ruptures and is destroyed, and its contents are scattered in the Astral Plane. If the bag is turned inside out, its contents spill forth, unharmed, but the bag must be put right before it can be used again. Breathing creatures inside the bag can survive up to a number of minutes equal to 10 divided by the number of creatures (minimum 1 minute), after which time they begin to suffocate.",
+        "Placing a bag of holding inside an extradimensional space created by a handy haversack, portable hole, or similar item instantly destroys both items and opens a gate to the Astral Plane. The gate originates where the one item was placed inside the other. Any creature within 10 feet of the gate is sucked through it to a random location on the Astral Plane. The gate then closes. The gate is one-way only and can't be reopened."
+      ]
+    },
+    {
+      "name": "Potion of Healing",
+      "source": "SRD",
+      "type": "P",
+      "rarity": "common",
+      "weight": 0.5,
+      "entries": [
+        "A character who drinks the magical red fluid in this vial regains {@dice 2d4 + 2} hit points. Drinking or administering a potion takes an action."
+      ]
+    }
+  ],
+  "condition": [
+    {
+      "name": "Blinded",
+      "source": "SRD",
+      "entries": [{ "type": "list", "items": [
+        "A blinded creature can't see and automatically fails any ability check that requires sight.",
+        "Attack rolls against the creature have advantage, and the creature's attack rolls have disadvantage."
+      ] }]
+    },
+    {
+      "name": "Charmed",
+      "source": "SRD",
+      "entries": [{ "type": "list", "items": [
+        "A charmed creature can't attack the charmer or target the charmer with harmful abilities or magical effects.",
+        "The charmer has advantage on any ability check to interact socially with the creature."
+      ] }]
+    },
+    {
+      "name": "Deafened",
+      "source": "SRD",
+      "entries": [{ "type": "list", "items": [
+        "A deafened creature can't hear and automatically fails any ability check that requires hearing."
+      ] }]
+    },
+    {
+      "name": "Exhaustion",
+      "source": "SRD",
+      "entries": [
+        "Some special abilities and environmental hazards, such as starvation and the long-term effects of freezing or scorching temperatures, can lead to a special condition called exhaustion. Exhaustion is measured in six levels. An effect can give a creature one or more levels of exhaustion, as specified in the effect's description.",
+        {
+          "type": "table",
+          "colLabels": ["Level", "Effect"],
+          "rows": [
+            ["1", "Disadvantage on ability checks"],
+            ["2", "Speed halved"],
+            ["3", "Disadvantage on attack rolls and saving throws"],
+            ["4", "Hit point maximum halved"],
+            ["5", "Speed reduced to 0"],
+            ["6", "Death"]
+          ]
+        },
+        "If an already exhausted creature suffers another effect that causes exhaustion, its current level of exhaustion increases by the amount specified in the effect's description.",
+        "A creature suffers the effect of its current level of exhaustion as well as all lower levels. For example, a creature suffering level 2 exhaustion has its speed halved and has disadvantage on ability checks.",
+        "An effect that removes exhaustion reduces its level as specified in the effect's description, with all exhaustion effects ending if a creature's exhaustion level is reduced below 1.",
+        "Finishing a long rest reduces a creature's exhaustion level by 1, provided that the creature has also ingested some food and drink."
+      ]
+    },
+    {
+      "name": "Frightened",
+      "source": "SRD",
+      "entries": [{ "type": "list", "items": [
+        "A frightened creature has disadvantage on ability checks and attack rolls while the source of its fear is within line of sight.",
+        "The creature can't willingly move closer to the source of its fear."
+      ] }]
+    },
+    {
+      "name": "Grappled",
+      "source": "SRD",
+      "entries": [{ "type": "list", "items": [
+        "A grappled creature's speed becomes 0, and it can't benefit from any bonus to its speed.",
+        "The condition ends if the grappler is {@condition incapacitated|SRD}.",
+        "The condition also ends if an effect removes the grappled creature from the reach of the grappler or grappling effect, such as when a creature is hurled away by the thunderwave spell."
+      ] }]
+    },
+    {
+      "name": "Incapacitated",
+      "source": "SRD",
+      "entries": [{ "type": "list", "items": [
+        "An incapacitated creature can't take actions or reactions."
+      ] }]
+    },
+    {
+      "name": "Invisible",
+      "source": "SRD",
+      "entries": [{ "type": "list", "items": [
+        "An invisible creature is impossible to see without the aid of magic or a special sense. For the purpose of hiding, the creature is heavily obscured. The creature's location can be detected by any noise it makes or any tracks it leaves.",
+        "Attack rolls against the creature have disadvantage, and the creature's attack rolls have advantage."
+      ] }]
+    },
+    {
+      "name": "Paralyzed",
+      "source": "SRD",
+      "entries": [{ "type": "list", "items": [
+        "A paralyzed creature is {@condition incapacitated|SRD} and can't move or speak.",
+        "The creature automatically fails Strength and Dexterity saving throws.",
+        "Attack rolls against the creature have advantage.",
+        "Any attack that hits the creature is a critical hit if the attacker is within 5 feet of the creature."
+      ] }]
+    },
+    {
+      "name": "Petrified",
+      "source": "SRD",
+      "entries": [{ "type": "list", "items": [
+        "A petrified creature is transformed, along with any nonmagical object it is wearing or carrying, into a solid inanimate substance (usually stone). Its weight increases by a factor of ten, and it ceases aging.",
+        "The creature is {@condition incapacitated|SRD}, can't move or speak, and is unaware of its surroundings.",
+        "Attack rolls against the creature have advantage.",
+        "The creature automatically fails Strength and Dexterity saving throws.",
+        "The creature has resistance to all damage.",
+        "The creature is immune to poison and disease, although a poison or disease already in its system is suspended, not neutralized."
+      ] }]
+    },
+    {
+      "name": "Poisoned",
+      "source": "SRD",
+      "entries": [{ "type": "list", "items": [
+        "A poisoned creature has disadvantage on attack rolls and ability checks."
+      ] }]
+    },
+    {
+      "name": "Prone",
+      "source": "SRD",
+      "entries": [{ "type": "list", "items": [
+        "A prone creature's only movement option is to crawl, unless it stands up and thereby ends the condition.",
+        "The creature has disadvantage on attack rolls.",
+        "An attack roll against the creature has advantage if the attacker is within 5 feet of the creature. Otherwise, the attack roll has disadvantage."
+      ] }]
+    },
+    {
+      "name": "Restrained",
+      "source": "SRD",
+      "entries": [{ "type": "list", "items": [
+        "A restrained creature's speed becomes 0, and it can't benefit from any bonus to its speed.",
+        "Attack rolls against the creature have advantage, and the creature's attack rolls have disadvantage.",
+        "The creature has disadvantage on Dexterity saving throws."
+      ] }]
+    },
+    {
+      "name": "Stunned",
+      "source": "SRD",
+      "entries": [{ "type": "list", "items": [
+        "A stunned creature is {@condition incapacitated|SRD}, can't move, and can speak only falteringly.",
+        "The creature automatically fails Strength and Dexterity saving throws.",
+        "Attack rolls against the creature have advantage."
+      ] }]
+    },
+    {
+      "name": "Unconscious",
+      "source": "SRD",
+      "entries": [{ "type": "list", "items": [
+        "An unconscious creature is {@condition incapacitated|SRD}, can't move or speak, and is unaware of its surroundings.",
+        "The creature drops whatever it's holding and falls {@condition prone|SRD}.",
+        "The creature automatically fails Strength and Dexterity saving throws.",
+        "Attack rolls against the creature have advantage.",
+        "Any attack that hits the creature is a critical hit if the attacker is within 5 feet of the creature."
+      ] }]
+    }
+  ],
+  "feat": [
+    {
+      "name": "Grappler",
+      "source": "SRD",
+      "prerequisite": [{ "ability": [{ "str": 13 }] }],
+      "entries": [
+        "You've developed the skills necessary to hold your own in close-quarters grappling. You gain the following benefits:",
+        { "type": "list", "items": [
+          "You have advantage on attack rolls against a creature you are grappling.",
+          "You can use your action to try to pin a creature {@condition grappled|SRD} by you. To do so, make another grapple check. If you succeed, you and the creature are both {@condition restrained|SRD} until the grapple ends."
+        ] }
+      ]
+    }
+  ]
+}
